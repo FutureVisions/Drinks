@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update/Delete</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard">Home</a>
+        <a href="/cart">Cart</a>
+        <a href="/logout">logout</a>
+    <h3>Update or Delete drink!</h3>
+    {% for drink in all_drinks %}
+    {% if request.session.log_user_id == drink.content_creator.id%}
+    <form method="POST" action="/update/{{drink.id}}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{drink.name}}</p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <p>${{drink.price}}</p>
+        <label for="price">Price</label>
+        <input type="number", min="0.00" max="1000000.00" id="price" name="price" value="0.00">
+        <p>{{drink.desc}}</p>
+        <label for="desc">Description</label>
+        <textarea name="desc" id="desc" cols="30"></textarea>
+        <img src="{{drink.image.url}}" width="200px" height="200px">
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image">
+        <input type="submit" value="Update Drink!"></form>
+        <a href="/delete/{{drink.id}}">Delete</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

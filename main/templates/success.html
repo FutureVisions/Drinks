@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Thank you for your order</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard">Home</a>
+        <a href="/cart">Cart</a>
+        <a href="/logout">logout</a>
+        <h2>Thank you for your order</h2>
+        <h3>Below is your order detail</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Order Number</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Order Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{customer.first_name}} {{customer.last_name}}</th>
+                    <td>{{order.id}}</td>
+                    <td>{{sum}}</td>
+                    <td>{{order.created_at}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
