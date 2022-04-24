@@ -19,7 +19,7 @@
     <a href="/logout" style="float: right">logout</a>
     <h1 style="text-align: center;">Drinks</h1>
     {% for drink in all_drinks %}
-        <p>{{drink.name}}</p>
+        <p style="font-weight: bold;">{{drink.name}}</p>
         <img src="{{drink.image.url}}" width="200px" height="200px">
         <p>{{drink.desc}}</p>
         <p>${{drink.price}}</p>
